@@ -20,13 +20,23 @@
       <Grid.ColumnDefinitions>
          <ColumnDefinition Width="150" />
          <ColumnDefinition Width="*" />
+         <ColumnDefinition Width="100" />
       </Grid.ColumnDefinitions>
       <UI:MyButton Grid.Row="0"
                       Grid.Column="0"
-                      DataContext="{Binding ButtonVM, Mode=OneWay}"/>
+                      DataContext="{Binding Button1VM, Mode=OneWay}"/>
 
       <UI:MyButton Grid.Row="2"
                       Grid.Column="0"
-                      DataContext="{Binding ButtonVM, Mode=OneWay}"/>
+                      DataContext="{Binding Button2VM, Mode=OneWay}"/>
+
+      <UI:MyButton Grid.Row="4"
+                   Grid.Column="0"
+                   DataContext="{Binding Button3VM, Mode=OneWay}" />
+
+      <ToggleButton Grid.Row="0"
+                    Grid.Column="2"
+                    Content="Onboarding"
+                    IsChecked="{Binding OnboardingVM.OnboardingEnabled, Mode=TwoWay}" />
    </Grid>
 </Window>

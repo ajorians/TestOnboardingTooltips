@@ -11,10 +11,18 @@ namespace TestOnboardingTooltips.ViewModels
    {
       public MainViewModel()
       {
-         ButtonVM = new ButtonViewModel( "Tooltip only" );
+         OnboardingVM = new OnboardingViewModel();
+
+         Button1VM = new ButtonViewModel( "Tooltip only" );
+         Button2VM = new ButtonViewModel( "Tooltip only" );
+         Button3VM = new ButtonViewModel( "Tooltip only" );
       }
 
-      public ButtonViewModel ButtonVM { get; private set; }
+      public ButtonViewModel Button1VM { get; private set; }
+      public ButtonViewModel Button2VM { get; private set; }
+      public ButtonViewModel Button3VM { get; private set; }
+
+      public OnboardingViewModel OnboardingVM { get; }
 
       public event PropertyChangedEventHandler PropertyChanged;
    }
