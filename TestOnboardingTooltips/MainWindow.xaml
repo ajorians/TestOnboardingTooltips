@@ -1,0 +1,32 @@
+﻿<Window x:Class="TestOnboardingTooltips.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestOnboardingTooltips"
+        xmlns:UI="clr-namespace:TestOnboardingTooltips.UI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+      <Grid.RowDefinitions>
+         <RowDefinition Height="75" />
+         <RowDefinition Height="8" />
+         <RowDefinition Height="75" />
+         <RowDefinition Height="8" />
+         <RowDefinition Height="75" />
+         <RowDefinition Height="8" />
+         <RowDefinition Height="75" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+         <ColumnDefinition Width="150" />
+         <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <UI:MyButton Grid.Row="0"
+                      Grid.Column="0"
+                      DataContext="{Binding ButtonVM, Mode=OneWay}"/>
+
+      <UI:MyButton Grid.Row="2"
+                      Grid.Column="0"
+                      DataContext="{Binding ButtonVM, Mode=OneWay}"/>
+   </Grid>
+</Window>
