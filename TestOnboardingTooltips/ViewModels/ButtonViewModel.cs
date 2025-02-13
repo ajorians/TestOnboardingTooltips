@@ -85,6 +85,8 @@ namespace TestOnboardingTooltips.ViewModels
          }
       }
 
+      public bool HasOnboardingTooltip => _onboadingtipVM != null;
+
       public event PropertyChangedEventHandler PropertyChanged;
    }
 }

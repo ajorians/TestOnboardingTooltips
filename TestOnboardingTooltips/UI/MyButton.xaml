@@ -19,6 +19,7 @@
          </Grid>-->
       </ToggleButton>
       <UI:TooltipPopup PlacementTarget="{Binding ElementName=toolButton}"
-                       ShowOriginalToolTip="{Binding ShowOriginalTooltip, Mode=OneWay}"/>
+                       ShowOriginalToolTip="{Binding ShowOriginalTooltip, Mode=OneWay}"
+                       HasOnboardingTip="{Binding HasOnboardingTooltip, Mode=OneWay}"/>
    </Grid>
 </UserControl>

@@ -43,6 +43,18 @@ namespace TestOnboardingTooltips.UI
          set => SetValue( ShowOriginalToolTipProperty, value );
       }
 
+      public static readonly DependencyProperty HasOnboardingTipProperty =
+         DependencyProperty.Register( nameof( HasOnboardingTip ),
+                                      typeof( bool ),
+                                      typeof( TooltipPopup ),
+                                      new PropertyMetadata( false ) );
+
+      public bool HasOnboardingTip
+      {
+         get => (bool)GetValue( HasOnboardingTipProperty );
+         set => SetValue( HasOnboardingTipProperty, value );
+      }
+
       public static readonly DependencyProperty InitialShowDelayMSProperty =
          DependencyProperty.Register( nameof( InitialShowDelayMS ),
                                  typeof( int ),

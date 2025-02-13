@@ -156,6 +156,16 @@ namespace TestOnboardingTooltips.AttachedBehaviors
          }
       }
 
+      private bool ShowOnboardingTooltips
+      {
+         get
+         {
+            var parentWindow = Window.GetWindow( PopupTarget );
+            var mainViewModel = parentWindow.DataContext as MainViewModel;
+            return mainViewModel.OnboardingVM.OnboardingEnabled;
+         }
+      }
+
       private void OnPopupTargetTooltipOpening( object sender, ToolTipEventArgs e )
       {
          //if (ShouldIgnorePopupOpening())
@@ -164,7 +174,9 @@ namespace TestOnboardingTooltips.AttachedBehaviors
          //   return;
          //}
 
-         if (AssociatedObject.ShowOriginalToolTip || ShowShortTooltips )
+         bool onboardingEnabledAndHasOnbordingTip = ShowOnboardingTooltips && AssociatedObject.HasOnboardingTip;
+
+         if ( !onboardingEnabledAndHasOnbordingTip && (AssociatedObject.ShowOriginalToolTip || ShowShortTooltips ) )
          {
             // Make sure the PopupTarget's original tooltip will be visible
             ChangePopupTargetToolTipVisibility( Visibility.Visible );
