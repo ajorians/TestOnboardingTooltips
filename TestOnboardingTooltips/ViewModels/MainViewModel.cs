@@ -24,6 +24,20 @@ namespace TestOnboardingTooltips.ViewModels
 
       public OnboardingViewModel OnboardingVM { get; }
 
+      private bool _shortTooltips = false;
+      public bool ShortTooltips
+      {
+         get => _shortTooltips;
+         set
+         {
+            if (_shortTooltips == value)
+               return;
+
+            _shortTooltips = value;
+            PropertyChanged?.Invoke( this, new PropertyChangedEventArgs( nameof( ShortTooltips ) ) );
+         }
+      }
+
       public event PropertyChangedEventHandler PropertyChanged;
    }
 }

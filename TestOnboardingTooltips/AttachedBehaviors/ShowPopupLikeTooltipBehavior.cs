@@ -10,10 +10,12 @@ using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Threading;
 using Microsoft.Xaml.Behaviors;
+using TestOnboardingTooltips.UI;
+using TestOnboardingTooltips.ViewModels;
 
 namespace TestOnboardingTooltips.AttachedBehaviors
 {
-   public class ShowPopupLikeTooltipBehavior : Behavior<Popup>
+   public class ShowPopupLikeTooltipBehavior : Behavior<TooltipPopup>
    {
       private DispatcherTimer _CloseOnLeaveTimer;
       private DispatcherTimer _AutoCloseTimer;
@@ -144,6 +146,16 @@ namespace TestOnboardingTooltips.AttachedBehaviors
          }
       }
 
+      private bool ShowShortTooltips
+      {
+         get
+         {
+            var parentWindow = Window.GetWindow( PopupTarget );
+            var mainViewModel = parentWindow.DataContext as MainViewModel;
+            return mainViewModel.ShortTooltips;
+         }
+      }
+
       private void OnPopupTargetTooltipOpening( object sender, ToolTipEventArgs e )
       {
          //if (ShouldIgnorePopupOpening())
@@ -152,12 +164,12 @@ namespace TestOnboardingTooltips.AttachedBehaviors
          //   return;
          //}
 
-         //if (AssociatedObject.ShowOriginalToolTip || (ConfigProvider != null && !ConfigProvider.Config.GeneralConfig.ShowAdvancedToolTips))
-         //{
-         //   // Make sure the PopupTarget's original tooltip will be visible
-         //   ChangePopupTargetToolTipVisibility( Visibility.Visible );
-         //   return;
-         //}
+         if (AssociatedObject.ShowOriginalToolTip || ShowShortTooltips )
+         {
+            // Make sure the PopupTarget's original tooltip will be visible
+            ChangePopupTargetToolTipVisibility( Visibility.Visible );
+            return;
+         }
 
          // Hide the PopupTarget's tooltip since we may be showing our custom popup tooltip
          ChangePopupTargetToolTipVisibility( Visibility.Collapsed );

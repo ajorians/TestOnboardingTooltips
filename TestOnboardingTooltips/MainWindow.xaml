@@ -38,5 +38,10 @@
                     Grid.Column="2"
                     Content="Onboarding"
                     IsChecked="{Binding OnboardingVM.OnboardingEnabled, Mode=TwoWay}" />
+
+      <ToggleButton Grid.Row="2"
+                    Grid.Column="2"
+                    Content="Short Tooltips"
+                    IsChecked="{Binding ShortTooltips, Mode=TwoWay}" />
    </Grid>
 </Window>
