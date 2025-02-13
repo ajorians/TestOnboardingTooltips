@@ -18,6 +18,7 @@
                        Text="{Binding ButtonText}" />
          </Grid>-->
       </ToggleButton>
-      <UI:TooltipPopup PlacementTarget="{Binding ElementName=toolButton}" />
+      <UI:TooltipPopup PlacementTarget="{Binding ElementName=toolButton}"
+                       ShowOriginalToolTip="{Binding ShowOriginalTooltip, Mode=OneWay}"/>
    </Grid>
 </UserControl>

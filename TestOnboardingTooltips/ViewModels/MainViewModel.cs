@@ -13,14 +13,29 @@ namespace TestOnboardingTooltips.ViewModels
       {
          OnboardingVM = new OnboardingViewModel();
 
-         Button1VM = new ButtonViewModel( "Tooltip only" );
-         Button2VM = new ButtonViewModel( "Tooltip only" );
-         Button3VM = new ButtonViewModel( "Tooltip only" );
+         Button1VM = new ButtonViewModel( OnboardingVM, "Tool button w/o onboarding tip" )
+         {
+            ToolTipVM = new ToolTipViewModel( "This is my tooltip" ),
+         };
+         Button2VM = new ButtonViewModel( OnboardingVM, "Tool button with onboarding tip" )
+         {
+            ToolTipVM = new ToolTipViewModel( "This is my tooltip" ),
+            OnboardingTipVM = new OnboardingTipViewModel( "Onboarding text here")
+         };
+         Button3VM = new ButtonViewModel( OnboardingVM, "Button with only tooltip" )
+         {
+            ToolTipVM = new ToolTipViewModel( "This is my tooltip" ),
+            ShowOriginalTooltip = true
+         };
+         Button4VM = new ButtonViewModel( OnboardingVM, "Button with no tips" )
+         {
+         };
       }
 
       public ButtonViewModel Button1VM { get; private set; }
       public ButtonViewModel Button2VM { get; private set; }
       public ButtonViewModel Button3VM { get; private set; }
+      public ButtonViewModel Button4VM { get; private set; }
 
       public OnboardingViewModel OnboardingVM { get; }
 

@@ -18,7 +18,7 @@
          <RowDefinition Height="75" />
       </Grid.RowDefinitions>
       <Grid.ColumnDefinitions>
-         <ColumnDefinition Width="150" />
+         <ColumnDefinition Width="250" />
          <ColumnDefinition Width="*" />
          <ColumnDefinition Width="100" />
       </Grid.ColumnDefinitions>
@@ -33,6 +33,10 @@
       <UI:MyButton Grid.Row="4"
                    Grid.Column="0"
                    DataContext="{Binding Button3VM, Mode=OneWay}" />
+
+      <UI:MyButton Grid.Row="6"
+                   Grid.Column="0"
+                   DataContext="{Binding Button4VM, Mode=OneWay}" />
 
       <ToggleButton Grid.Row="0"
                     Grid.Column="2"
